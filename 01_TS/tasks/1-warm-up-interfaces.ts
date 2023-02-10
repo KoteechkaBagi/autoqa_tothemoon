@@ -19,6 +19,6 @@ interface Info extends City {
     coords: Coords
 }
 
-export let montreal: unknown;
+export let montreal: Info;
 
-export let tampa: unknown;
+export let tampa: Info;
