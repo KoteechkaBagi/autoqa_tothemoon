@@ -9,4 +9,9 @@
   type spaceXLength = Length<spaceX> // expected 5
 */
 
-export type Length<T> = any;
+interface MyLength {
+  length: number
+}
+
+export type Length<T extends MyLength> = T["length"]
+

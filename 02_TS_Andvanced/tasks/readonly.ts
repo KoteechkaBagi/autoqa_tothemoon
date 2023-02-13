@@ -19,4 +19,6 @@
   implemented.description = "barFoo" // Error: cannot reassign a readonly property
 */
 
-export type MyReadonly<T> = any
+export type MyReadonly<T> = {
+  readonly [P in keyof T]: T[P];
+}

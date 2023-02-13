@@ -7,4 +7,4 @@
   type B = If<false, 'a', 'b'> // expected to be 'b'
 */
 
-export type If<C, T, F> = any
+export type If<C extends boolean, T extends unknown, F extends unknown> = C extends true ? T : F
