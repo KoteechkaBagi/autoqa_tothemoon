@@ -9,4 +9,4 @@
   type spaceXLength = Length<spaceX> // expected 5
 */
 
-export type Length<T> = any;
+export type Length<T extends readonly unknown[]> = T["length"]
