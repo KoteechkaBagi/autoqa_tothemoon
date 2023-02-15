@@ -17,7 +17,7 @@
   }
 */
 
-export type MyOmit<T extends object, K extends keyof T> = {
+export type MyOmit<T, K extends keyof T> = {
   [P in Exclude<keyof T, K>] : T[P]
 }
 

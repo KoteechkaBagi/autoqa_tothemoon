@@ -9,9 +9,4 @@
   type spaceXLength = Length<spaceX> // expected 5
 */
 
-interface MyLength {
-  length: number
-}
-
-export type Length<T extends MyLength> = T["length"]
-
+export type Length<T extends readonly unknown[]> = T["length"]
