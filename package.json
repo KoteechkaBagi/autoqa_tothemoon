@@ -2,6 +2,7 @@
   "devDependencies": {
     "@types/node": "^18.13.0",
     "ts-node": "^10.9.1",
+    "ts-sinon": "^2.0.2",
     "tslib": "^2.5.0",
     "typescript": "^4.9.5"
   },
@@ -9,9 +10,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "events": "npx ts-node ./03_TS_events_promises/task_events/events.ts",
+    "promises": "npx ts-node ./03_TS_events_promises/task_promises/promises.ts"
   },
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "chai": "^4.3.7",
+    "save": "^2.9.0"
+  }
 }
