@@ -9,4 +9,4 @@
   type head2 = First<arr2> // expected to be 3
 */
 
-export type First<T extends any[]> = T extends [] ? never : T[0]
+export type First<T extends any[]> = any
