@@ -1,9 +1,11 @@
-import events from 'events';
+import EventEmitter from 'events';
 import fs from 'fs';
 import readline from 'readline';
 import { Calculator } from './calculator';
 
 let calculator = new Calculator;
+
+const eventEmitter = new EventEmitter();
 
 (async function processLineByLine() {
   try {
@@ -13,32 +15,35 @@ let calculator = new Calculator;
     });
 
     rl.on('line', (line) => {
-      let numbers = line.split(' ')
-      let operation: string = numbers[2]
-      let result: number = 0;
+      let numbers: string[] = line.split(' ')
+      let [firstParamenter, secondParameter, operation] = numbers;
+
+      function myEvent(event: string, method: any): void {
+        eventEmitter.on(event, method)
+        eventEmitter.emit(event, +firstParamenter, +secondParameter)
+        eventEmitter.off(event, method)
+      }
+
       switch (operation) {
         case "+":
-            result = calculator.sum(+numbers[0], +numbers[1])
-            break;
+          myEvent('sum', calculator.sum)
+          break;
         case "-":
-            result = calculator.subtract(+numbers[0], +numbers[1])
-            break;
+          myEvent('substract', calculator.subtract)
+          break;
         case "/":
-            result = calculator.devide(+numbers[0], +numbers[1])
-            break;
+          myEvent('divide', calculator.divide)
+          break;
         case "*":
-            result = calculator.multiply(+numbers[0], +numbers[1])
-            break;
+          myEvent('multiply', calculator.multiply)
+          break;
         case "%":
-            result = calculator.remainder(+numbers[0], +numbers[1])
-            break;
+          myEvent('remainder', calculator.remainder)
+          break;
         default:
-            break;
+          throw new Error('Operation is not defined')
       }
-      console.log(`${numbers[0]} ${numbers[2]} ${numbers[1]} = ${result}`)
     });
-
-    await events.once(rl, 'close');
 
   } catch (err) {
     console.error(err);

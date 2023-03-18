@@ -2,32 +2,39 @@ export class Calculator {
 
     constructor(){}
 
-    public sum (first: number, second: number) : number {
-        return +first + +second;
+    public sum (first: number, second: number) : void {
+        let result = first + second
+        console.log(`${first} + ${second} = ${result}`);
     }
 
-    public subtract (first: number, second: number) : number {
-        return first - second;
+    public subtract (first: number, second: number) : void {
+        let result = first - second
+        console.log(`${first} - ${second} = ${result}`);
     }
 
-    public multiply (first: number, second: number) : number {
+    public multiply (first: number, second: number) : void {
+        let result: number;
         if (first < 0 && second === 0) {
-            return Math.abs(first * second)
+            result = Math.abs(first * second)
         } else {
-            return first * second;
-        }  
+            result = first * second;
+        }
+        console.log(`${first} * ${second} = ${result}`);
     }
 
-    public devide (first: number, second: number) : number {
+    public divide (first: number, second: number) : void {
+        let result: number;
         if (second) {
-            return first/second;
+            result = first/second;
         } else {
             throw Error ("You can't devide by zero")
         }
+        console.log(`${first} / ${second} = ${result}`); 
     }
 
-    public remainder (first: number, second: number) : number {
-        return first % second
+    public remainder (first: number, second: number) : void {
+        let result = first % second
+        console.log(`${first} % ${second} = ${result}`); 
     }
 
 }

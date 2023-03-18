@@ -9,8 +9,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "events": "npx ts-node D:/autoqajs_tothemoon/03_TS_events_promises/task_events/events.ts",
-    "promises": "npx ts-node D:/autoqajs_tothemoon/03_TS_events_promises/task_promises/promises.ts"
+    "events": "npx ts-node ./03_TS_events_promises/task_events/events.ts",
+    "promises": "npx ts-node ./03_TS_events_promises/task_promises/promises.ts"
   },
   "author": "",
   "license": "ISC",
