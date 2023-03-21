@@ -1,11 +1,9 @@
-import EventEmitter from 'events';
+import { eventEmitter } from './event_emitter';
 import fs from 'fs';
 import readline from 'readline';
 import { Calculator } from './calculator';
 
 let calculator = new Calculator;
-
-const eventEmitter = new EventEmitter();
 
 (async function processLineByLine() {
   try {
@@ -18,27 +16,21 @@ const eventEmitter = new EventEmitter();
       let numbers: string[] = line.split(' ')
       let [firstParamenter, secondParameter, operation] = numbers;
 
-      function myEvent(event: string, method: any): void {
-        eventEmitter.on(event, method)
-        eventEmitter.emit(event, +firstParamenter, +secondParameter)
-        eventEmitter.off(event, method)
-      }
-
       switch (operation) {
         case "+":
-          myEvent('sum', calculator.sum)
+          eventEmitter.emit('sum', calculator, +firstParamenter, +secondParameter)
           break;
         case "-":
-          myEvent('substract', calculator.subtract)
+          eventEmitter.emit('substract', calculator, +firstParamenter, +secondParameter)
           break;
         case "/":
-          myEvent('divide', calculator.divide)
+          eventEmitter.emit('divide', calculator, +firstParamenter, +secondParameter)
           break;
         case "*":
-          myEvent('multiply', calculator.multiply)
+          eventEmitter.emit('multiply', calculator, +firstParamenter, +secondParameter)
           break;
         case "%":
-          myEvent('remainder', calculator.remainder)
+          eventEmitter.emit('remainder', calculator, +firstParamenter, +secondParameter)
           break;
         default:
           throw new Error('Operation is not defined')
