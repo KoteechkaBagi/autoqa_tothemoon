@@ -1,8 +1,10 @@
 {
   "devDependencies": {
+    "@types/expect": "^24.3.0",
     "@types/mocha": "^10.0.1",
     "@types/node": "^18.13.0",
     "mocha": "^10.2.0",
+    "ts-mocha": "^10.0.0",
     "ts-node": "^10.9.1",
     "ts-sinon": "^2.0.2",
     "tslib": "^2.5.0",
@@ -13,7 +15,6 @@
   "main": "index.js",
   "scripts": {
     "events": "npx ts-node ./03_TS_events_promises/task_events/events.ts",
-    "events-tests": "mocha --config=./03_TS_events_promises/task_events/.mocharc.json",
     "promises": "npx ts-node ./03_TS_events_promises/task_promises/promises.ts"
   },
   "author": "",

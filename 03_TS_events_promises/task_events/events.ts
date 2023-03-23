@@ -2,6 +2,11 @@ import { eventEmitter } from './event_emitter';
 import fs from 'fs';
 import readline from 'readline';
 import { Calculator } from './calculator';
+import Mocha from 'mocha';
+import 'ts-mocha';
+
+const mocha = new Mocha();
+mocha.addFile('./03_TS_events_promises/task_events/tests.ts');
 
 let calculator = new Calculator;
 
@@ -36,7 +41,13 @@ const rl = readline.createInterface({
           throw new Error('Operation is not defined')
       }
     });
-
+    rl.on('close', () => {
+      mocha.run((failures) => {
+        process.on('exit', () => {
+          process.exit(failures);
+        });
+      });
+    });
   } catch (err) {
     console.error(err);
   }
