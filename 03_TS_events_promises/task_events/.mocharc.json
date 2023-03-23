@@ -1,0 +1,5 @@
+{
+    "extension": ["ts"],
+    "spec": ["03_TS_events_promises/task_events/tests.ts"],
+    "require": ["ts-node/register"]
+}

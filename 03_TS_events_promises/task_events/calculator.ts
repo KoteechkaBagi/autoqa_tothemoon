@@ -7,7 +7,7 @@ export class Calculator {
         console.log(`${first} + ${second} = ${result}`);
     }
 
-    public substract (first: number, second: number) : void {
+    public subtract (first: number, second: number) : void {
         let result = first - second
         console.log(`${first} - ${second} = ${result}`);
     }

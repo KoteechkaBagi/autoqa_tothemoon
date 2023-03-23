@@ -5,13 +5,13 @@ import { Calculator } from './calculator';
 
 let calculator = new Calculator;
 
+const rl = readline.createInterface({
+  input: fs.createReadStream('./03_TS_events_promises/task_events/input.txt'),
+  crlfDelay: Infinity
+});
+
 (async function processLineByLine() {
   try {
-    const rl = readline.createInterface({
-      input: fs.createReadStream('./03_TS_events_promises/task_events/input.txt'),
-      crlfDelay: Infinity
-    });
-
     rl.on('line', (line) => {
       let numbers: string[] = line.split(' ')
       let [firstParamenter, secondParameter, operation] = numbers;
@@ -21,7 +21,7 @@ let calculator = new Calculator;
           eventEmitter.emit('sum', calculator, +firstParamenter, +secondParameter)
           break;
         case "-":
-          eventEmitter.emit('substract', calculator, +firstParamenter, +secondParameter)
+          eventEmitter.emit('subtract', calculator, +firstParamenter, +secondParameter)
           break;
         case "/":
           eventEmitter.emit('divide', calculator, +firstParamenter, +secondParameter)
@@ -41,3 +41,5 @@ let calculator = new Calculator;
     console.error(err);
   }
 })();
+
+export default rl;
