@@ -1,9 +1,7 @@
 import sinon from "ts-sinon"
 import { sumSpy, subtractSpy, divideSpy, multiplySpy, remainderSpy } from "./event_emitter"
-import "./events"
 
-describe ("Tests for calculator events", () => {
-
+  describe ("Tests for calculator events", () => {
     it ("'Sum' should be called correct number of times", () => {
         sinon.assert.callCount(sumSpy, 2)
     })
@@ -23,5 +21,4 @@ describe ("Tests for calculator events", () => {
     it ("'Remainder' should be called correct number of times", () => {
         sinon.assert.callCount(remainderSpy, 1)
     })
-
 })
