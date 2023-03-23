@@ -14,7 +14,6 @@
   "main": "index.js",
   "scripts": {
     "events": "npx ts-node ./03_TS_events_promises/task_events/events.ts",
-    "events-tests": "mocha --config=./03_TS_events_promises/task_events/.mocharc.json",
     "promises": "npx ts-node ./03_TS_events_promises/task_promises/promises.ts"
   },
   "author": "",
