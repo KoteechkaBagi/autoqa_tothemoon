@@ -1,0 +1,1 @@
+export type Actions = "getStudentsList" | "getYoungestStudentAge" | "assignStudents" | "graduateStudents"
