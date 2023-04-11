@@ -13,7 +13,7 @@ export class UniversityCommander implements Commander {
         this.univercity = univercity;
     }
 
-    public execute(action : keyof Univercity, ...args: Student[]): void {
+    public execute(action : Exclude<keyof Univercity, 'students' | 'studentsAge'>, ...args: Student[]): void {
         switch (action) {
             case 'getStudentsList':
                 this.univercity.getStudentsList()
