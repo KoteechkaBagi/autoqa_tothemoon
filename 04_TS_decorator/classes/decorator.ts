@@ -13,7 +13,7 @@ export class UniversityCommander implements Commander {
         this.univercity = univercity;
     }
 
-    public execute(action : keyof { getStudentsList: string, getYoungestStudentAge: string, assignStudents: string, graduateStudents: string }, ...args: Student[]): void {
+    public execute(action : keyof Univercity, ...args: Student[]): void {
         switch (action) {
             case 'getStudentsList':
                 this.univercity.getStudentsList()

@@ -13,8 +13,8 @@ export class Univercity extends Building {
         super(foundationYear, city);
     }
 
-    public students: String[] = [];
-    public studentsAge: number[] = []
+    protected students: String[] = [];
+    protected studentsAge: number[] = []
 
     public getStudentsList() {
         if(this.students.length) {

@@ -10,12 +10,11 @@ bseu.getYoungestStudentAge()
 console.log('------------Assign students from class Univercity-----------------');
 bseu.assignStudents(donaldTrump, bobMarley, petrChaikovsky)
 bseu.getStudentsList()
-console.log(bseu.studentsAge);
 bseu.getYoungestStudentAge()
 
 const bseuCommander = new UniversityCommander(bseu)
 console.log('------------Univercity Commander - assign students-------------');
-bseuCommander.execute('assignStudents', bobMarley, ilonMask)
+bseuCommander.execute('assignStudents', bobMarley, ilonMask, petrChaikovsky)
 bseuCommander.execute('graduateStudents', petrChaikovsky, bobMarley)
 console.log('-------------Univercity Commander - get students list and min age----------');
 bseuCommander.execute('getStudentsList')
