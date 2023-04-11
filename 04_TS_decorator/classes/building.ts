@@ -13,7 +13,7 @@ export class Univercity extends Building {
         super(foundationYear, city);
     }
 
-    protected students: String[] = [];
+    protected students: string[] = [];
     protected studentsAge: number[] = []
 
     public getStudentsList() {
@@ -34,7 +34,7 @@ export class Univercity extends Building {
 
     public assignStudents(... args: Student[]) { 
         args.forEach((item) => {
-            let fullName: String = `${item.name} ${item.surname}`
+            let fullName: string = `${item.name} ${item.surname}`
             if(item.age >= 16) {
                 this.students.push(fullName)
                 this.studentsAge.push(item.age)   
@@ -47,7 +47,7 @@ export class Univercity extends Building {
 
     public graduateStudents(... args: Student[]) {
         args.forEach((item) => {
-            let fullName: String = `${item.name} ${item.surname}`
+            let fullName: string = `${item.name} ${item.surname}`
             if(this.students.includes(fullName)) {
                 this.students.splice(this.students.indexOf(fullName), 1)
             } else {

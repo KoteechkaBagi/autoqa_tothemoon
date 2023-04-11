@@ -14,22 +14,7 @@ export class UniversityCommander implements Commander {
     }
 
     public execute(action : Exclude<keyof Univercity, 'students' | 'studentsAge'>, ...args: Student[]): void {
-        switch (action) {
-            case 'getStudentsList':
-                this.univercity.getStudentsList()
-                break;
-            case 'getYoungestStudentAge':
-                this.univercity.getYoungestStudentAge()
-                break;
-            case 'assignStudents':
-                this.univercity.assignStudents(...args)
-                break;
-            case 'graduateStudents':
-                this.univercity.graduateStudents(...args)
-                break;
-            default:
-                break;
-        }
+        this.univercity[action](...args)
     }
 }
 
