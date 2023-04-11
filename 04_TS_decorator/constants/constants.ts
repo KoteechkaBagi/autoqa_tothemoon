@@ -18,7 +18,7 @@ export const donaldTrump: Student = {
     name: "Donald",
     surname: "Trump",
     homeTown: "New York",
-    age: 76
+    age: 78
 }
 
 export const petrChaikovsky: Student = {

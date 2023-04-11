@@ -1,4 +1,4 @@
-import { Actions, Student } from "../types/types";
+import { Student } from "../types/types";
 import { Univercity } from "./building";
 
 interface Commander {
@@ -13,7 +13,7 @@ export class UniversityCommander implements Commander {
         this.univercity = univercity;
     }
 
-    public execute(action : keyof Actions, ...args: Student[]): void {
+    public execute(action : keyof { getStudentsList: string, getYoungestStudentAge: string, assignStudents: string, graduateStudents: string }, ...args: Student[]): void {
         switch (action) {
             case 'getStudentsList':
                 this.univercity.getStudentsList()

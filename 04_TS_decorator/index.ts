@@ -8,8 +8,9 @@ console.log('---------------Call methods from class Univercity----------------')
 bseu.getStudentsList()
 bseu.getYoungestStudentAge()
 console.log('------------Assign students from class Univercity-----------------');
-bseu.assignStudents(donaldTrump, petrChaikovsky)
+bseu.assignStudents(donaldTrump, bobMarley, petrChaikovsky)
 bseu.getStudentsList()
+console.log(bseu.studentsAge);
 bseu.getYoungestStudentAge()
 
 const bseuCommander = new UniversityCommander(bseu)
