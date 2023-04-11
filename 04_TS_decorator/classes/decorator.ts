@@ -6,12 +6,7 @@ interface Commander {
 }
 
 export class UniversityCommander implements Commander {
-    
-    private univercity: Univercity;
-
-    constructor(univercity: Univercity) {
-        this.univercity = univercity;
-    }
+    constructor(private univercity: Univercity) {}
 
     public execute(action : Exclude<keyof Univercity, 'students' | 'studentsAge'>, ...args: Student[]): void {
         this.univercity[action](...args)
