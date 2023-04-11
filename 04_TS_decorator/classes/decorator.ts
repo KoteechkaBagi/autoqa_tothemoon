@@ -1,5 +1,4 @@
-import { Actions } from "../helpers/helpers";
-import { Student } from "../types/types";
+import { Actions, Student } from "../types/types";
 import { Univercity } from "./building";
 
 interface Commander {
@@ -8,13 +7,13 @@ interface Commander {
 
 export class UniversityCommander implements Commander {
     
-    public univercity: Univercity;
+    private univercity: Univercity;
 
     constructor(univercity: Univercity) {
         this.univercity = univercity;
     }
 
-    public execute(action : Actions, ...args: Student[]): void {
+    public execute(action : keyof Actions, ...args: Student[]): void {
         switch (action) {
             case 'getStudentsList':
                 this.univercity.getStudentsList()
@@ -23,8 +22,6 @@ export class UniversityCommander implements Commander {
                 this.univercity.getYoungestStudentAge()
                 break;
             case 'assignStudents':
-                this.univercity.students = []
-                this.univercity.studentsAge =[]
                 this.univercity.assignStudents(...args)
                 break;
             case 'graduateStudents':
@@ -34,7 +31,6 @@ export class UniversityCommander implements Commander {
                 break;
         }
     }
-
 }
 
 

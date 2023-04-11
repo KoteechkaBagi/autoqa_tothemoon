@@ -1,10 +1,7 @@
 import { Student } from "../types/types";
 
 export class Building {
-    constructor (protected foundationYear: number, protected city: string) {
-        this.foundationYear = foundationYear
-        this.city = city
-    }
+    constructor (protected foundationYear: number, protected city: string) { }
 
     public getBuildingInfo() {
         console.log(`This building was found in ${this.foundationYear} in ${this.city}.`);
@@ -12,15 +9,12 @@ export class Building {
 }
 
 export class Univercity extends Building {
-    protected name: string;
-
-    constructor (foundationYear: number, city: string, name: string) {
+    constructor (foundationYear: number, city: string, protected name: string) {
         super(foundationYear, city);
-        this.name = name
     }
 
-    students: String[] = [];
-    studentsAge: number[] = []
+    protected students: String[] = [];
+    protected studentsAge: number[] = []
 
     public getStudentsList() {
         if(this.students.length) {
@@ -38,27 +32,26 @@ export class Univercity extends Building {
         }
     }
 
-    public assignStudents(... args: Student[]) {
-        for (let i = 0; i < args.length; i++) {
-            let fullName: String = `${args[i].name} ${args[i].surname}`
-            if(!this.students.includes(fullName) && args[i].age > 16) {
+    public assignStudents(... args: Student[]) { 
+        args.forEach((item) => {
+            let fullName: String = `${item.name} ${item.surname}`
+            if(!this.students.includes(fullName) && item.age >= 16) {
                 this.students.push(fullName)
-                this.studentsAge.push(args[i].age)
-            } else if (args[i].age < 16) {
-                console.log(`We believe that ${args[i].name} ${args[i].surname} should finish school at first, as he/she is only ${args[i].age} years old`);
-                
-            }
-        }
+                this.studentsAge.push(item.age)
+            } else if (item.age < 16) {
+                console.log(`We believe that ${item.name} ${item.surname} should finish school at first, as he/she is only ${item.age} years old`);   
+            } 
+        })
     }
 
     public graduateStudents(... args: Student[]) {
-        for (let i = 0; i < args.length; i++) {
-            let fullName: String = `${args[i].name} ${args[i].surname}`
+        args.forEach((item) => {
+            let fullName: String = `${item.name} ${item.surname}`
             if(this.students.includes(fullName)) {
                 this.students.splice(this.students.indexOf(fullName), 1)
             } else {
-                console.log(`Sorry, seems like student ${args[i].name} ${args[i].surname} is not studying in our university!`);  
+                console.log(`Sorry, seems like student ${item.name} ${item.surname} is not studying in our university!`);  
             }
-        }
+        })
     }
 }

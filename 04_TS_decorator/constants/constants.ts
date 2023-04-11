@@ -14,9 +14,9 @@ export const ilonMask: Student = {
     age: 51
 }
 
-export const donaldTramp: Student = {
+export const donaldTrump: Student = {
     name: "Donald",
-    surname: "Tramp",
+    surname: "Trump",
     homeTown: "New York",
     age: 76
 }
