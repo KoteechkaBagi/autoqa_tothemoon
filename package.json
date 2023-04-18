@@ -16,7 +16,8 @@
   "scripts": {
     "events": "npx ts-node ./03_TS_events_promises/task_events/events.ts",
     "promises": "npx ts-node ./03_TS_events_promises/task_promises/promises.ts",
-    "decorator:test": "npx ts-node ./04_TS_decorator/index.ts"
+    "decorator:test": "npx ts-node ./04_TS_decorator/index.ts",
+    "builder:test": "npx ts-node ./05_TS_builder/index.ts"
   },
   "author": "",
   "license": "ISC",
