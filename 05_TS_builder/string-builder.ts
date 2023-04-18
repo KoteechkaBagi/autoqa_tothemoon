@@ -5,7 +5,7 @@ class Builder {
 }
 
 export class StringBuilder extends Builder {
-    constructor(public resultString: string = '') {
+    constructor(private resultString: string = '') {
         super();   
     }
 
@@ -16,19 +16,27 @@ export class StringBuilder extends Builder {
 
     public insert(index : number, str : string) : this {
         let arr = this.resultString.split('');
-        arr.splice(index + 1, 0, str);
-        this.resultString = arr.join('');
+        if(index <= arr.length) {
+            arr.splice(index + 1, 0, str);
+            this.resultString = arr.join('');
+        } else {
+            throw new Error('You entered incorrect index')
+        }
         return this
     }
 
     public delete(from : number, to : number) : this {
         let arr = this.resultString.split('');
-        arr.splice(from, (to - from + 1));
-        this.resultString = arr.join('');
+        if(to >= from && to <= arr.length) {
+            arr.splice(from, (to - from + 1));
+            this.resultString = arr.join('');
+        } else {
+            throw new Error('You entered incorrect index')
+        }
         return this
     }
 
-    public reset() : StringBuilder {
+    public reset() : this {
         this.resultString = ''
         return this
     }
